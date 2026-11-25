@@ -17,6 +17,9 @@ for(const p of ['X','O']){
   }catch(e){}
 }
 
+const saved=['X','O'].filter(p=>marks[p]);
+if(saved.length) markMsg.textContent='Saved image in use for '+saved.join(' and ')+'.';
+
 function saveMark(p){
   try{
     if(marks[p]) localStorage.setItem(KEY(p),marks[p]);
@@ -53,14 +56,15 @@ for(const p of ['X','O']){
       saveMark(p);
       markMsg.textContent='Image for '+p+' updated.';
     }catch(e){
+      input.value='';
       markMsg.textContent='That file could not be used. Pick a PNG, JPG, GIF, WebP or SVG image.';
     }
-    input.value='';
     render();
   });
   document.getElementById('clear'+p).addEventListener('click',()=>{
     marks[p]=null;
     saveMark(p);
+    input.value='';
     markMsg.textContent='Image for '+p+' removed. The letter '+p+' is back.';
     render();
   });
