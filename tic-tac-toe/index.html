@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tic tac toe, 3 marks only</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <a class="back" href="../index.html">Back to portfolio</a>
+  <h1>Tic tac toe</h1>
+  <ol class="rules">
+    <li>Take turns placing your mark (X or O) on an empty square.</li>
+    <li>Get 3 of your marks in a line to win. The line can go across, down, or diagonally.</li>
+    <li>You can only have 3 marks on the board. When you place a 4th, your oldest mark disappears.</li>
+    <li>Your oldest mark looks faded, so you can see which one will disappear next.</li>
+  </ol>
+
+  <label class="mode" for="level">Opponent<select id="level"><option value="2p">Two players</option><option value="easy">Computer: easy</option><option value="medium" selected>Computer: medium</option><option value="hard">Computer: hard</option></select></label>
+
+  <fieldset class="marks">
+    <legend>Custom marks (optional)</legend>
+    <div>
+      <label for="fileX">Image for X (you)</label>
+      <input id="fileX" type="file" accept="image/*">
+      <button id="clearX" type="button">Use X</button>
+    </div>
+    <div>
+      <label for="fileO">Image for O (computer or player 2)</label>
+      <input id="fileO" type="file" accept="image/*">
+      <button id="clearO" type="button">Use O</button>
+    </div>
+    <p id="markMsg" aria-live="polite"></p>
+  </fieldset>
+
+  <p id="status" aria-live="polite"></p>
+  <div id="board" role="group" aria-label="Game board"></div>
+  <button id="reset" type="button">New game</button>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
